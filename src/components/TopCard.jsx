@@ -8,4 +8,5 @@ function TopCard() {
     )
 }
 
-export default TopCard
+export default TopCard;
+
