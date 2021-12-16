@@ -42,6 +42,84 @@ const users = [
 ]
 
 
+const posts = [
+    {
+        id:'1',
+        user_name: 'laddy',
+        user_img: 'https://cdn.pixabay.com/photo/2021/06/22/14/55/girl-6356393_960_720.jpg',
+        poster_img: 'https://cdn.pixabay.com/photo/2019/05/30/00/46/pion-4238892__480.jpg',
+        isLike: false,
+        description: 'Happy New Year',
+        like_count: 120,
+        comments: [
+            {
+                user: '',
+                msg: ''
+            }
+        ]
+    },
+    {
+        id:'2',
+        user_name: 'laddy',
+        user_img: 'https://cdn.pixabay.com/photo/2021/06/22/14/55/girl-6356393_960_720.jpg',
+        poster_img: 'https://cdn.pixabay.com/photo/2019/05/30/00/46/pion-4238892__480.jpg',
+        isLike: false,
+        description: 'Happy New Year',
+        like_count: 120,
+        comments: [
+            {
+                user: '',
+                msg: ''
+            }
+        ]
+    },
+    {
+        id:'3',
+        user_name: 'laddy',
+        user_img: 'https://cdn.pixabay.com/photo/2021/06/22/14/55/girl-6356393_960_720.jpg',
+        poster_img: 'https://cdn.pixabay.com/photo/2019/05/30/00/46/pion-4238892__480.jpg',
+        isLike: false,
+        description: 'Happy New Year',
+        like_count: 120,
+        comments: [
+            {
+                user: '',
+                msg: ''
+            }
+        ]
+    },
+    {
+        id:'4',
+        user_name: 'laddy',
+        user_img: 'https://cdn.pixabay.com/photo/2021/06/22/14/55/girl-6356393_960_720.jpg',
+        poster_img: 'https://cdn.pixabay.com/photo/2019/05/30/00/46/pion-4238892__480.jpg',
+        isLike: false,
+        description: 'Happy New Year',
+        like_count: 120,
+        comments: [
+            {
+                user: '',
+                msg: ''
+            }
+        ]
+    },
+    {   id:'5',
+        user_name: 'laddy',
+        user_img: 'https://cdn.pixabay.com/photo/2021/06/22/14/55/girl-6356393_960_720.jpg',
+        poster_img: 'https://cdn.pixabay.com/photo/2019/05/30/00/46/pion-4238892__480.jpg',
+        isLike: false,
+        description: 'Happy New Year',
+        like_count: 120,
+        comments: [
+            {
+                user: '',
+                msg: ''
+            }
+        ]
+    },
+]
+
+
 function Main() {
     return (
        <main>
@@ -56,56 +134,37 @@ function Main() {
                     )}
                 </div>
                 <div className="main__bottom">
-                    <div className="top-box">
-                        <div>
-                            <img src="https://cdn.pixabay.com/photo/2021/06/22/14/55/girl-6356393_960_720.jpg" alt="smth" />
-                            <p>lady</p>
-                        </div>
-                        <p>...</p>
-                    </div>
-                    <div className="middle-box">
-                        <img src="https://cdn.pixabay.com/photo/2019/05/30/00/46/pion-4238892__480.jpg" alt="#" />
-                    </div>
-                    <div className="bottom-box">
-                        <div>
-                            <div>
-                                <AiOutlineHeart />
+                   {
+                       posts.map(item => (
+                           <>
+                             <div className="top-box">
+                                <div>
+                                    <img  src={item.user_img} alt="smth" />
+                                    <p>{item.user_name}</p>
+                                </div>
+                                <p>...</p>
                             </div>
-                            <div>
-                                <FaRegComment />
+                            <div className="middle-box">
+                                <img src={item.poster_img} alt="#" />
                             </div>
-                            <div>
-                                <FiSend />
+                            <div className="bottom-box">
+                                <div>
+                                    <div>
+                                        <AiOutlineHeart />
+                                    </div>
+                                    <div>
+                                        <FaRegComment />
+                                    </div>
+                                    <div>
+                                        <FiSend />
+                                    </div>
+                                </div>
+                                <BiLabel />
                             </div>
-                        </div>
-                        <BiLabel />
-                    </div>
-                </div>
-                <div className="main__bottom">
-                    <div className="top-box">
-                        <div>
-                            <img src="https://cdn.pixabay.com/photo/2021/06/22/14/55/girl-6356393_960_720.jpg" alt="smth" />
-                            <p>lady</p>
-                        </div>
-                        <p>...</p>
-                    </div>
-                    <div className="middle-box">
-                        <img src="https://cdn.pixabay.com/photo/2019/05/30/00/46/pion-4238892__480.jpg" alt="#" />
-                    </div>
-                    <div className="bottom-box">
-                        <div>
-                            <div>
-                                <AiOutlineHeart />
-                            </div>
-                            <div>
-                                <FaRegComment />
-                            </div>
-                            <div>
-                                <FiSend />
-                            </div>
-                        </div>
-                        <BiLabel />
-                    </div>
+                            <p>Просмотры:{item.like_count}</p>
+                           </>
+                       ))
+                   }
                 </div>
            </div>
            <div className="main__right">
