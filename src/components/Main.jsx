@@ -1,10 +1,13 @@
-import React from 'react'
+import {useState} from 'react';
 import {AiOutlineHeart} from 'react-icons/ai';
+import {FcLike} from 'react-icons/fc'
 import {FaRegComment} from 'react-icons/fa';
 import {FiSend} from 'react-icons/fi';
 import {BiLabel} from 'react-icons/bi';
 import '../components/main.css';
 import baby from '../assets/baby-4962875__340.webp';
+
+
 
 const users = [
     {
@@ -39,13 +42,29 @@ const users = [
         image:'https://cdn.pixabay.com/photo/2017/08/01/08/29/woman-2563491__340.jpg',
          name: '_lily'
      },
+     {
+        image:'https://cdn.pixabay.com/photo/2013/07/13/12/43/kids-160168__340.png',
+         name: 'bella'
+     },
+     {
+        image:'https://cdn.pixabay.com/photo/2017/08/01/08/29/woman-2563491__340.jpg',
+         name: '_lily'
+     },
+     {
+        image:'https://cdn.pixabay.com/photo/2018/06/18/02/03/woman-3481756__340.jpg',
+         name: 'princess'
+     },
+     {
+        image:'https://cdn.pixabay.com/photo/2021/06/22/14/55/girl-6356393_960_720.jpg',
+         name: 'lady'
+     },
 ]
 
 
 const posts = [
     {
         id:'1',
-        user_name: 'laddy',
+        user_name: 'lady',
         user_img: 'https://cdn.pixabay.com/photo/2021/06/22/14/55/girl-6356393_960_720.jpg',
         poster_img: 'https://cdn.pixabay.com/photo/2019/05/30/00/46/pion-4238892__480.jpg',
         isLike: false,
@@ -60,10 +79,10 @@ const posts = [
     },
     {
         id:'2',
-        user_name: 'laddy',
+        user_name: 'amanda',
         user_img: 'https://cdn.pixabay.com/photo/2021/06/22/14/55/girl-6356393_960_720.jpg',
         poster_img: 'https://cdn.pixabay.com/photo/2019/05/30/00/46/pion-4238892__480.jpg',
-        isLike: false,
+        isLike: true,
         description: 'Happy New Year',
         like_count: 120,
         comments: [
@@ -75,7 +94,7 @@ const posts = [
     },
     {
         id:'3',
-        user_name: 'laddy',
+        user_name: 'princess',
         user_img: 'https://cdn.pixabay.com/photo/2021/06/22/14/55/girl-6356393_960_720.jpg',
         poster_img: 'https://cdn.pixabay.com/photo/2019/05/30/00/46/pion-4238892__480.jpg',
         isLike: false,
@@ -90,7 +109,7 @@ const posts = [
     },
     {
         id:'4',
-        user_name: 'laddy',
+        user_name: '_lily',
         user_img: 'https://cdn.pixabay.com/photo/2021/06/22/14/55/girl-6356393_960_720.jpg',
         poster_img: 'https://cdn.pixabay.com/photo/2019/05/30/00/46/pion-4238892__480.jpg',
         isLike: false,
@@ -104,7 +123,7 @@ const posts = [
         ]
     },
     {   id:'5',
-        user_name: 'laddy',
+        user_name: 'melek',
         user_img: 'https://cdn.pixabay.com/photo/2021/06/22/14/55/girl-6356393_960_720.jpg',
         poster_img: 'https://cdn.pixabay.com/photo/2019/05/30/00/46/pion-4238892__480.jpg',
         isLike: false,
@@ -117,15 +136,44 @@ const posts = [
             }
         ]
     },
+    {   id:'6',
+    user_name: 'bella',
+    user_img: 'https://cdn.pixabay.com/photo/2021/06/22/14/55/girl-6356393_960_720.jpg',
+    poster_img: 'https://cdn.pixabay.com/photo/2019/05/30/00/46/pion-4238892__480.jpg',
+    isLike: false,
+    description: 'Happy New Year',
+    like_count: 120,
+    comments: [
+        {
+            user_img: '',
+            user: '',
+            msg: ''
+        }
+    ]
+},
 ]
 
 
+
+
+
 function Main() {
+
+    // const [isLike, setIsLike] = useState(false);
+    const [data, setData] = useState(users)
+    const [post, setPost] = useState(posts)
+
+    const likeHandler = (id) => {
+        console.log(id)
+        const updated = post.map(item => item.id === id ? {...item, isLike: !item.isLike}: item);
+        setPost(updated)
+    };
+
     return (
        <main>
            <div className="main__left">
                 <div className="main__top">
-                    {users.map((item, key) => (
+                    {data.map((item, key) => (
                         <div className="main__top--box">
                             <img src={item.image} alt="smth" />
                             <p>{item.name}</p>
@@ -135,33 +183,33 @@ function Main() {
                 </div>
                 <div className="main__bottom">
                    {
-                       posts.map(item => (
+                       post.map(item => (
                            <>
-                             <div className="top-box">
-                                <div>
-                                    <img  src={item.user_img} alt="smth" />
-                                    <p>{item.user_name}</p>
+                                <div className="top-box">
+                                    <div>
+                                        <img  src={item.user_img} alt="smth" />
+                                        <p>{item.user_name}</p>
+                                    </div>
+                                    <p>...</p>
                                 </div>
-                                <p>...</p>
-                            </div>
-                            <div className="middle-box">
-                                <img src={item.poster_img} alt="#" />
-                            </div>
-                            <div className="bottom-box">
-                                <div>
-                                    <div>
-                                        <AiOutlineHeart />
-                                    </div>
-                                    <div>
-                                        <FaRegComment />
-                                    </div>
-                                    <div>
-                                        <FiSend />
-                                    </div>
+                                <div className="middle-box">
+                                    <img src={item.poster_img} alt="#" />
                                 </div>
-                                <BiLabel />
-                            </div>
-                            <p>Просмотры:{item.like_count}</p>
+                                <div className="bottom-box">
+                                    <div>
+                                        <div onClick={() => likeHandler(item.id)}>
+                                            {item.isLike ? <FcLike />: <AiOutlineHeart />}
+                                        </div>
+                                        <div>
+                                            <FaRegComment />
+                                        </div>
+                                        <div>
+                                            <FiSend />
+                                        </div>
+                                    </div>
+                                    <BiLabel />
+                                </div>
+                                <p>Просмотры:175</p>
                            </>
                        ))
                    }

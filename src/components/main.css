@@ -21,7 +21,19 @@ main {
     width: 650px;
     border: 1px solid rgba(194, 189, 189, 0.438);
     border-radius: 5px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
 }
+
+.main__top::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+/* .main__top::-webkit-scrollbar-thumb {
+    background: #FF0000;
+} */
 .main__top--box {
     text-align: center;
 }
@@ -86,6 +98,7 @@ main {
 .main__bottom p {
     margin-left: 25px;
 }
+
 .main__right {
     position: fixed;
     margin: 20px 0px;
