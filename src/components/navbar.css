@@ -32,8 +32,10 @@
     width: 250px;
     border: 1px solid rgb(219, 202, 202) ;
     background: rgba(238, 229, 229, 0.322);
-    color: rgb(231, 220, 220);
     border-radius: 5px;
+    outline: none
+    
+    ;
 }
 .nav__link--icon {
     font-size: 25px;

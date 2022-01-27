@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import  {useState} from 'react';
 import pic from '../assets/logo.png';
 import navPic from '../assets/nav-pic.jpg'
 import {MdHomeFilled} from 'react-icons/md';
@@ -7,8 +7,13 @@ import {BiMessageSquareAdd} from 'react-icons/bi';
 import {IoCompassOutline} from 'react-icons/io5';
 import {FiHeart} from 'react-icons/fi';
 import './navbar.css'
+import Main from './Main';
+
+
 
 function Navbar() {
+    const [searchTerm, setSearchTerm] = useState('');
+
     return(
        <div className="nav">
            <ul className="nav__list">
@@ -17,6 +22,17 @@ function Navbar() {
                </li>
                <li className="nav__link nav__link--search">
                    <input type="search" placeholder="Search"/>
+                   {/* {Main.filter((val) => {
+                       if (searchTerm =="") {
+                           return val
+                       } else if (val.users.name.toLoverCase().includes(searchTerm.toLoverCase())) {
+                            return val
+                       }
+                   }).map((val, key) =>{
+                       return <div className='user' key={key}>
+                                {val.name}
+                              </div>
+                   })}, */}
                </li>
                 <li className="nav__link nav__link--icon">
                     <MdHomeFilled/>

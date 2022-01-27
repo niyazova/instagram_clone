@@ -6,6 +6,7 @@ import {FiSend} from 'react-icons/fi';
 import {BiLabel} from 'react-icons/bi';
 import '../components/main.css';
 import baby from '../assets/baby-4962875__340.webp';
+import Comments from './Comments';
 
 
 
@@ -58,6 +59,18 @@ const users = [
         image:'https://cdn.pixabay.com/photo/2021/06/22/14/55/girl-6356393_960_720.jpg',
          name: 'lady'
      },
+     {
+        image:'https://cdn.pixabay.com/photo/2018/05/22/14/00/girl-3421489__340.jpg',
+         name: 'khilola'
+     },
+     {
+         image:'https://cdn.pixabay.com/photo/2017/08/01/08/29/woman-2563491__340.jpg',
+          name: '_lily'
+      },
+      {
+         image:'https://cdn.pixabay.com/photo/2018/01/29/17/01/woman-3116587__340.jpg',
+         name: 'amanda'
+      },
 ]
 
 
@@ -193,7 +206,7 @@ function Main() {
                                     <p>...</p>
                                 </div>
                                 <div className="middle-box">
-                                    <img src={item.poster_img} alt="#" />
+                                    <img src='https://cdn.pixabay.com/photo/2018/05/22/14/00/girl-3421489__340.jpg' alt="#" />
                                 </div>
                                 <div className="bottom-box">
                                     <div>
